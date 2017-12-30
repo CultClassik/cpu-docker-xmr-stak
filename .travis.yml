@@ -1,0 +1,18 @@
+sudo: required
+
+language: bash
+
+dist: xenial
+
+services:
+  - docker
+
+script:
+  - TAG="2.2.0"
+  - CONT_NAME="cpu-xmr-stak"
+  - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+  - docker build -t cultclassik/$CONT_NAME:latest ./build
+  - docker images
+  - docker tag cultclassik/$CONT_NAME cultclassik/$CONT_NAME:$TAG
+  - docker push cultclassik/$CONT_NAME:$TAG
+  - docker push cultclassik/$CONT_NAME:latest
