@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # License: Unspecified
 # Version: 0.3
 set -e

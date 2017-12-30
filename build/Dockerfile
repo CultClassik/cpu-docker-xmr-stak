@@ -17,6 +17,7 @@ RUN apk --no-cache upgrade \
                 build-base \
                 openssl-dev \
                 libmicrohttpd-dev \
+                bash \
         && git clone https://github.com/fireice-uk/xmr-stak.git \
         && cd xmr-stak \
         && printf "#pragma once\nconstexpr double fDevDonationLevel = 0.0 / 100.0;" \
@@ -41,4 +42,4 @@ WORKDIR /xmr-stak
 
 RUN chmod +x /xmr-stak/*.sh
 
-CMD ["/xmr-stak/run.sh"]
+CMD [ "/bin/bash", "/xmr-stak/run.sh"]

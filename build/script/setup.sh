@@ -1,4 +1,4 @@
-#!/hint/sh
+#!/bin/bash
 
 setup_variables() {
         # ${parameter:?}        - error out if parameter null or not set
