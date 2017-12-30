@@ -11,4 +11,4 @@ setup_variables
 [[ ! -f "cpu.txt" ]] && { setup_cpu; }
 
 # execute
-exec xmr-stak
+exec ./xmr-stak
