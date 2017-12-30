@@ -1,4 +1,4 @@
-# cpu-docker-lbry [![Build Status](https://travis-ci.org/CultClassik/cpu-docker-xmr-stak.svg?branch=master)](https://travis-ci.org/CultClassik/cpu-docker-xmr-stak)
+# cpu-docker-xmr-stak [![Build Status](https://travis-ci.org/CultClassik/cpu-docker-xmr-stak.svg?branch=master)](https://travis-ci.org/CultClassik/cpu-docker-xmr-stak)
 [Image on Docker Hub](https://hub.docker.com/r/cultclassik/cpu-xmr-stak/)
 
 Dockerfile to build cultclassik/cpu-xmr-stak CPU container for mining Monero and others.
