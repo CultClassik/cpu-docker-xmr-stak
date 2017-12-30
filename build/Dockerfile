@@ -28,8 +28,8 @@ RUN git clone https://github.com/fireice-uk/xmr-stak.git &&\
                  -DMICROHTTPD_ENABLE=OFF \
          && make \
          && cd - \
-         && mv /xmr-stak/bin/* /usr/local/bin/ \
-         && rm -rf /xmr-stak \
+         && mv /tmp/xmr-stak/bin/* /usr/local/bin/ \
+         && rm -rf /tmp/xmr-stak \
          && apk del \
                  automake \
                  autoconf \
