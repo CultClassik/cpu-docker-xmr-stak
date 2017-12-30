@@ -2,8 +2,6 @@ FROM library/alpine:3.6
 
 LABEL "maintainer"="Chris Diehl <cultclassik@gmail.com>"
 
-ENV MINER_URL="https://api.github.com/repos/fireice-uk/xmr-stak/releases/latest"
-
 ENV WORKER="myminer"
 ENV POOL_USER="447vxA7StEu5Ht9p8MiWNmhLo48dYnfwPGUYtxUAArxKD6DkSthnQiVL843NKEC1oGTS6Gmu3XaoK3uBcQ118zXaFPjLdxz"
 ENV POOL_PASS="x"
@@ -12,18 +10,33 @@ ENV CURRENCY="monero"
 
 RUN apk --no-cache upgrade &&\
     apk --no-cache add \
-        curl
-
-RUN mkdir /miner
+        cmake \
+        automake \
+        autoconf \
+        openssl-dev \
+        git \
+        build-base
 
 WORKDIR /tmp
 
-RUN curl -O `curl -s ${MINER_URL} | grep -o 'browser_download_url.*xmr-stak-portbin-linux.tar.gz' | sed 's/.*"//'`
+RUN git clone https://github.com/fireice-uk/xmr-stak.git &&\
+         cd xmr-stak &&\
+         cmake . \
+                 -DCUDA_ENABLE=OFF \
+                 -DOpenCL_ENABLE=OFF \
+                 -DHWLOC_ENABLE=OFF \
+                 -DMICROHTTPD_ENABLE=OFF \
+         && make \
+         && cd - \
+         && mv /xmr-stak/bin/* /usr/local/bin/ \
+         && rm -rf /xmr-stak \
+         && apk del \
+                 automake \
+                 autoconf \
+                 build-base \
+                 git
 
-RUN tar xzf  -C /miner --strip-components 1
 
-RUN rm xmr-stak-portbin-linux.tar.gz
+WORKDIR /
 
-WORKDIR /miner
-
-CMD [ "/miner/xmr-stak", "--currency", "${CURRENCY}", "--url", "${POOL_URL}", "--user", "${POOL_USER}", "--pass", "${POOL_PASS}" ]
+CMD [ "xmr-stak", "--currency", "${CURRENCY}", "--url", "${POOL_URL}", "--user", "${POOL_USER}", "--pass", "${POOL_PASS}" ]
