@@ -10,7 +10,7 @@ ENV POOL_PASS="x"
 ENV POOL_URL="mine.moneropool.com:3333"
 ENV CURRENCY="monero"
 
-RUN apk --no-cache-upgrade &&\
+RUN apk --no-cache upgrade &&\
     apk --no-cache add \
         curl
 
