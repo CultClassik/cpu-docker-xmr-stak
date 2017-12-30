@@ -35,7 +35,7 @@ RUN apk --no-cache upgrade \
                 autoconf \
                 build-base
 
-ADD ./script/* /xmr-stak
+ADD ./script/* /xmr-stak/
 
 RUN chmod +x /xmr-stak/*.sh
 
