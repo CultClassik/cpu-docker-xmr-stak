@@ -37,6 +37,6 @@ RUN apk --no-cache upgrade \
 
 ADD /script/* /xmr-stak
 
-RUN chmod +x run.sh
+RUN chmod +x /xmr-stak/*.sh
 
 CMD ["./run.sh"]
