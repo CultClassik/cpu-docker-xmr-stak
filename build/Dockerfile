@@ -26,8 +26,8 @@ RUN apk --no-cache upgrade \
                 -DOpenCL_ENABLE=OFF \
                 -DHWLOC_ENABLE=OFF \
         && make \
-        && mkdir /xmr-stak \
-        && mv /tmp/xmr-stak/bin/* /xmr-stak/ \
+        && cd - \
+        && mv /tmp/xmr-stak/bin/* /usr/local/bin/ \
         && rm -rf /tmp/* \
         && apk del \
                 git \
@@ -41,4 +41,4 @@ WORKDIR /xmr-stak
 
 RUN chmod +x /xmr-stak/*.sh
 
-CMD ["./run.sh"]
+CMD ["/xmr-stak/run.sh"]
