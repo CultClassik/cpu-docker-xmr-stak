@@ -42,4 +42,4 @@ WORKDIR /xmr-stak
 
 RUN chmod +x /xmr-stak/*.sh
 
-CMD [ "/bin/bash", "/xmr-stak/run.sh"]
+CMD [ "/xmr-stak/run.sh"]
