@@ -10,7 +10,7 @@ setup_variables() {
         POOL_PASSWORD=${POOL_PASSWORD:-x}
         USE_TLS=${USE_TLS:-false}
         TLS_FINGERPRINT=${TLS_FINGERPRINT}
-        USE_NICEHASH=${USE_NICEHASH:-true}
+        USE_NICEHASH=${USE_NICEHASH:-false}
         POOL_WEIGHT=${POOL_WEIGHT:-1}
         CURRENCY=${CURRENCY:-monero}
         CALL_TIMEOUT=${CALL_TIMEOUT:-10}
@@ -21,7 +21,7 @@ setup_variables() {
         H_PRINT_TIME=${H_PRINT_TIME:-60}
         AES_OVERRIDE=${AES_OVERRIDE:-null}
         USE_SLOW_MEMORY=${USE_SLOW_MEMORY:-warn}
-        TLS_SECURE_ALGO=${TLS_SECURE_ALGO:-true}
+        TLS_SECURE_ALGO=${TLS_SECURE_ALGO:-false}
         DAEMON_MODE=${DAEMON_MODE:-false}
         FLUSH_STDOUT=${FLUSH_STDOUT:-true}
         OUTPUT_FILE=${OUTPUT_FILE}

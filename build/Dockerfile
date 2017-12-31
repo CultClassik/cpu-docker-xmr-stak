@@ -5,6 +5,9 @@ LABEL "maintainer"="Chris Diehl <cultclassik@gmail.com>"
 ENV WALLET_ADDRESS="447vxA7StEu5Ht9p8MiWNmhLo48dYnfwPGUYtxUAArxKD6DkSthnQiVL843NKEC1oGTS6Gmu3XaoK3uBcQ118zXaFPjLdxz"
 ENV POOL_ADDRESS="mine.moneropool.com:3333"
 ENV CURRENCY="monero"
+ENV HTTPD_PORT=3000
+ENV HTTP_LOGIN="http_user"
+ENV HTTP_PASS="http_pass"
 
 WORKDIR /tmp
 
